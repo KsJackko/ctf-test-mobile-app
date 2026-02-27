@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "Figma-Context-MCP-Skill": {
+      "source": "HowardTangOvO/Figma-Context-MCP-Skill",
+      "sourceType": "github",
+      "computedHash": "886c9196840252edd1757a8beaf700845dbb130c24e41d2c406d0e178b2cc026"
+    }
+  }
+}
