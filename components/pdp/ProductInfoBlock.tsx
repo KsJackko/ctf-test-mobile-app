@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   currentPrice: {
     color: pdpTokens.colors.accent,
-    fontFamily: pdpTokens.typography.bodySansBold,
+    fontFamily: pdpTokens.typography.bodySans,
     fontSize: 36 / 2,
     lineHeight: 42 / 2,
   },
