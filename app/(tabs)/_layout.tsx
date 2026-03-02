@@ -9,6 +9,7 @@ export default function TabLayout() {
         tabBarStyle: { display: 'none' },
       }}>
       <Tabs.Screen name="index" options={{ title: 'Product' }} />
+      <Tabs.Screen name="shopping-bag" options={{ title: 'Shopping Bag' }} />
     </Tabs>
   );
 }

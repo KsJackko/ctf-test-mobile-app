@@ -1,0 +1,36 @@
+export const shoppingBagTokens = {
+  colors: {
+    pageBg: '#FFFFFF',
+    checkoutBg: '#F6F5F3',
+    textPrimary: '#796E65',
+    textGold: '#B78E6C',
+    textAccent: '#A10D1F',
+    textOnDark: '#FFFFFF',
+    line: '#D7D4D1',
+    lineSoft: '#F2F0F0',
+    white: '#FFFFFF',
+    buttonBg: '#796E65',
+  },
+  spacing: {
+    xs: 4,
+    sm: 8,
+    md: 12,
+    lg: 16,
+    xl: 24,
+  },
+  sizing: {
+    contentWidth: 369,
+    headerBarHeight: 52,
+    itemImage: 120,
+    qtyControlWidth: 79,
+    qtyControlHeight: 30,
+    bottomBarHeight: 97,
+    giftImageWidth: 120,
+    giftImageHeight: 84,
+  },
+  typography: {
+    serif: 'OrpheusProRegular',
+    body: 'EuropaRegular',
+    bodyBold: 'EuropaBold',
+  },
+} as const;

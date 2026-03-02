@@ -1,3 +1,5 @@
+import { useRouter } from 'expo-router';
+
 import { PDPPage } from '@/components/pdp/PDPPage';
 import type { PdpProductViewModel } from '@/components/pdp/types';
 
@@ -39,5 +41,7 @@ const PDP_PRODUCT_MOCK: PdpProductViewModel = {
 };
 
 export default function PDPRoute() {
-  return <PDPPage product={PDP_PRODUCT_MOCK} />;
+  const router = useRouter();
+
+  return <PDPPage product={PDP_PRODUCT_MOCK} onPressCart={() => router.push('/shopping-bag')} />;
 }

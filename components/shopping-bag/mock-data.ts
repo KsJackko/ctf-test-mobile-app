@@ -1,0 +1,76 @@
+import type { ShoppingBagViewModel } from '@/components/shopping-bag/types';
+
+export const SHOPPING_BAG_MOCK: ShoppingBagViewModel = {
+  title: 'Shopping Bag',
+  itemCountLabel: '(4)',
+  items: [
+    {
+      id: 'bag-item-pdp-1',
+      imageSource: require('@/assets/figma/pdp-product-kv-01.png'),
+      pdpRoute: '/',
+      title: '18K/750 White Gold diamond ring',
+      subtitle: '5-day money-back',
+      metaLines: ['Color: White Gold', 'Size: 16'],
+      priceCurrent: 'HK$24,460',
+      priceOriginal: 'HK$26,200',
+      priceCurrentColor: 'accent',
+      quantityLabel: 'Qty 1',
+      trailingActionLabel: 'Move to wishlist',
+    },
+    {
+      id: 'bag-item-1',
+      imageSource: require('@/assets/figma/shopping-bag/bag-item-secondary-10609d.png'),
+      badgeText: 'CHIIKAWA',
+      title: 'Usagi 999 Gold charm',
+      subtitle: '5-day money-back',
+      priceCurrent: 'HK$2,800',
+      quantityLabel: 'Qty 1',
+      trailingActionLabel: 'Move to wishlist',
+      priceCurrentColor: 'default',
+    },
+    {
+      id: 'bag-item-2',
+      imageSource: require('@/assets/figma/shopping-bag/bag-item-primary-597451.png'),
+      title: '18K/750 White Gold diamond ring',
+      subtitle: '5-day money-back',
+      metaLines: ['Color: Rose Gold', 'Size: 13'],
+      priceCurrent: 'HK$14,600',
+      priceOriginal: 'HK$16,200',
+      priceCurrentColor: 'accent',
+      quantityLabel: 'Qty 1',
+      trailingActionLabel: 'Move to wishlist',
+    },
+  ],
+  giftBannerText: 'Season gift unlocked with HK$6,800+ spend',
+  giftItems: [
+    {
+      id: 'gift-1',
+      imageSource: require('@/assets/figma/shopping-bag/gift-item-1.png'),
+      title: 'Fortune Cat 999 Gold Coin',
+      priceLabel: 'Free',
+      quantityLabel: 'x 1',
+    },
+    {
+      id: 'gift-2',
+      imageSource: require('@/assets/figma/shopping-bag/gift-item-2.png'),
+      title: 'Pixiu 999 Gold Bracelet',
+      priceLabel: 'Free',
+      quantityLabel: 'x 1',
+    },
+  ],
+  summary: {
+    actionRows: [
+      { id: 'promo-code', label: 'Add Promo Code' },
+      { id: 'coupon', label: 'Use Coupon' },
+    ],
+    orderTitle: 'Order Summary',
+    rows: [
+      { id: 'subtotal', label: 'Subtotal', value: 'HK$66,080' },
+      { id: 'discount', label: 'Discount', value: '-HK$3,340' },
+      { id: 'shipping', label: 'Shipping', value: 'Free' },
+    ],
+    totalLabel: 'Total (2 items)',
+    totalValue: 'HK$62,740',
+  },
+  ctaLabel: 'proceed to purchase',
+};

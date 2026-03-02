@@ -1,4 +1,3 @@
-import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import { useMemo } from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
@@ -11,6 +10,9 @@ export type GiftOfferSliderProps = {
 };
 
 const SNAP_INTERVAL = pdpTokens.gift.cardWidth + pdpTokens.gift.sliderGap;
+const GIFT_CARD_BG = require('@/assets/figma/pdp/gift-offer-card-bg.png');
+const GIFT_INFO_ICON = require('@/assets/figma/pdp/gift-offer-info.png');
+const GIFT_DEFAULT_IMAGE = require('@/assets/figma/pdp/gift-offer-thumb-71c548.png');
 
 export function GiftOfferSlider({ offers }: GiftOfferSliderProps) {
   const safeOffers = useMemo(() => offers ?? [], [offers]);
@@ -34,13 +36,12 @@ export function GiftOfferSlider({ offers }: GiftOfferSliderProps) {
         ItemSeparatorComponent={() => <View style={{ width: pdpTokens.gift.sliderGap }} />}
         renderItem={({ item }) => (
           <View style={styles.card}>
-            <View style={styles.gradientBase} />
-            <View style={styles.gradientOverlay} />
+            <Image source={GIFT_CARD_BG} style={styles.bgImage} contentFit="fill" />
 
             {item.imageSource ? (
               <Image source={item.imageSource} style={styles.image} contentFit="cover" />
             ) : (
-              <View style={styles.imagePlaceholder} />
+              <Image source={GIFT_DEFAULT_IMAGE} style={styles.image} contentFit="cover" />
             )}
 
             <View style={styles.textBlock}>
@@ -48,7 +49,7 @@ export function GiftOfferSlider({ offers }: GiftOfferSliderProps) {
                 <Text style={styles.title} numberOfLines={1}>
                   {item.title}
                 </Text>
-                <Feather name="info" size={14} color={pdpTokens.gift.textColor} />
+                <Image source={GIFT_INFO_ICON} style={styles.infoIcon} contentFit="contain" />
               </View>
               <Text style={styles.subtitle} numberOfLines={1}>
                 {item.subtitle}
@@ -75,14 +76,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     position: 'relative',
   },
-  gradientBase: {
+  bgImage: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: pdpTokens.gift.gradientEnd,
-  },
-  gradientOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: pdpTokens.gift.gradientStart,
-    opacity: 0.55,
   },
   image: {
     width: pdpTokens.gift.imageSize,
@@ -90,13 +85,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: pdpTokens.gift.imageBorder,
     backgroundColor: '#FFFFFF',
-  },
-  imagePlaceholder: {
-    width: pdpTokens.gift.imageSize,
-    height: pdpTokens.gift.imageSize,
-    borderWidth: 1,
-    borderColor: pdpTokens.gift.imageBorder,
-    backgroundColor: '#EFEDED',
   },
   textBlock: {
     position: 'absolute',
@@ -112,6 +100,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 2,
+  },
+  infoIcon: {
+    width: 14,
+    height: 14,
   },
   title: {
     color: pdpTokens.gift.textColor,

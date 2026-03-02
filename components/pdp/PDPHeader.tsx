@@ -1,21 +1,25 @@
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { pdpTokens } from '@/components/pdp/pdp-tokens';
 
 type PDPHeaderProps = {
   cartCount: number;
   topInset: number;
+  onCartPress?: () => void;
 };
 
-export function PDPHeader({ cartCount, topInset }: PDPHeaderProps) {
+export function PDPHeader({ cartCount, topInset, onCartPress }: PDPHeaderProps) {
   return (
     <View style={[styles.container, { paddingTop: Math.max(topInset, 6) }]}>
       <View style={styles.actionRow}>
         <Feather name="chevron-left" size={24} color={pdpTokens.colors.icon} />
         <View style={styles.rightActions}>
           <Feather name="upload" size={22} color={pdpTokens.colors.icon} />
-          <View>
+          <Pressable
+            accessibilityRole="button"
+            onPress={onCartPress}
+            style={({ pressed }) => [styles.cartHit, pressed ? styles.pressed : undefined]}>
             <MaterialCommunityIcons
               name="shopping-outline"
               size={24}
@@ -24,7 +28,7 @@ export function PDPHeader({ cartCount, topInset }: PDPHeaderProps) {
             <View style={styles.badge}>
               <Text style={styles.badgeText}>{cartCount}</Text>
             </View>
-          </View>
+          </Pressable>
         </View>
       </View>
     </View>
@@ -48,6 +52,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: pdpTokens.spacing.md,
   },
+  cartHit: {
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   badge: {
     position: 'absolute',
     right: -8,
@@ -64,5 +74,8 @@ const styles = StyleSheet.create({
     fontSize: 11,
     lineHeight: 14,
     fontWeight: '600',
+  },
+  pressed: {
+    opacity: 0.75,
   },
 });

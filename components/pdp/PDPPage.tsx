@@ -13,11 +13,12 @@ import type { PdpProductViewModel } from '@/components/pdp/types';
 
 type PDPPageProps = {
   product: PdpProductViewModel;
+  onPressCart?: () => void;
 };
 
 const BOTTOM_BAR_BASE_HEIGHT = 82;
 
-export function PDPPage({ product }: PDPPageProps) {
+export function PDPPage({ product, onPressCart }: PDPPageProps) {
   const insets = useSafeAreaInsets();
   const defaultVariant = useMemo(
     () => product.variants.find((variant) => variant.enabled !== false)?.id ?? '',
@@ -27,7 +28,7 @@ export function PDPPage({ product }: PDPPageProps) {
 
   return (
     <View style={styles.page}>
-      <PDPHeader title={product.headerTitle} cartCount={product.cartCount} topInset={insets.top} />
+      <PDPHeader cartCount={product.cartCount} topInset={insets.top} onCartPress={onPressCart} />
 
       <ScrollView
         bounces={false}

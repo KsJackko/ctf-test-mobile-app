@@ -17,11 +17,13 @@ const localGiftOffers: PdpGiftOffer[] = [
     id: 'gift-local-1',
     title: 'Maruko Silver Charm',
     subtitle: 'HK$3,800+ spend on Maruko Collection.',
+    imageSource: require('@/assets/figma/pdp/gift-offer-thumb-71c548.png'),
   },
   {
     id: 'gift-local-2',
     title: 'Maruko Gold Charm',
     subtitle: 'HK$6,800+ spend on Maruko Collection.',
+    imageSource: require('@/assets/figma/pdp/gift-offer-thumb-71c548.png'),
   },
 ];
 
